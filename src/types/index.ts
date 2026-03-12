@@ -1,17 +1,36 @@
+// ===== Market Types =====
+
+export type MarketSymbol =
+  | "FX_IDC:USDBRL"
+  | "BINANCE:BTCUSDT"
+  | "BINANCE:ETHUSDT"
+  | "FX:EURUSD"
+  | "BINANCE:USDTBRL"
+  | string;
+
 export interface MarketAsset {
   id: string;
-  symbol: string;
+  symbol: MarketSymbol;
   name: string;
-  category: 'crypto' | 'forex';
+  category: "crypto" | "forex";
 }
 
-export type ProductType = 'USDC' | 'USD Investimentos' | 'USD Banking';
+
+// ===== Product Types =====
+
+export type ProductType =
+  | "USDC"
+  | "USD_INVESTIMENTOS"
+  | "USD_BANKING";
 
 export interface ProductFees {
   spread: number;
   iof: number;
   productFee: number;
 }
+
+
+// ===== Calculator Types =====
 
 export interface CalculationInput {
   exchangeRate: number;
@@ -21,6 +40,9 @@ export interface CalculationInput {
   productFee: number;
   fixedFee: number;
 }
+
+
+// ===== Breakdown Types =====
 
 export interface BreakdownValues {
   baseRate: number;
@@ -32,6 +54,9 @@ export interface BreakdownValues {
   finalRate: number;
   totalCost: number;
 }
+
+
+// ===== Scenario Types =====
 
 export interface ScenarioResult {
   scenario: string;
