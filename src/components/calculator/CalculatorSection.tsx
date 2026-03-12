@@ -1,35 +1,20 @@
 'use client';
 
+import { ProductType, CalculationInput, BreakdownValues } from '@/types';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { CalculatorForm } from './CalculatorForm';
 import { CalculationBreakdown } from './CalculationBreakdown';
 
 interface CalculatorSectionProps {
   calculator: {
-    input: {
-      exchangeRate: number;
-      quantity: number;
-      spread: number;
-      iof: number;
-      productFee: number;
-      fixedFee: number;
-    };
-    selectedProduct: 'USDC' | 'USD Investimentos' | 'USD Banking';
-    productTypes: ('USDC' | 'USD Investimentos' | 'USD Banking')[];
-    breakdown: {
-      baseRate: number;
-      spreadValue: number;
-      afterSpread: number;
-      iofValue: number;
-      afterIof: number;
-      productFeeValue: number;
-      finalRate: number;
-      totalCost: number;
-    };
-    handleProductChange: (product: 'USDC' | 'USD Investimentos' | 'USD Banking') => void;
-    updateField: <K extends 'exchangeRate' | 'quantity' | 'spread' | 'iof' | 'productFee' | 'fixedFee'>(
+    input: CalculationInput;
+    selectedProduct: ProductType;
+    productTypes: ProductType[];
+    breakdown: BreakdownValues;
+    handleProductChange: (product: ProductType) => void;
+    updateField: <K extends keyof CalculationInput>(
       field: K,
-      value: number
+      value: CalculationInput[K]
     ) => void;
   };
 }

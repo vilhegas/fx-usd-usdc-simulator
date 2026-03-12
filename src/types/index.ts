@@ -20,8 +20,8 @@ export interface MarketAsset {
 
 export type ProductType =
   | "USDC"
-  | "USD Investimentos"
-  | "USD Banking";
+  | "USD_INVESTIMENTOS"
+  | "USD_BANKING";
 
 export interface ProductFees {
   spread: number;
